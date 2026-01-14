@@ -1,0 +1,9 @@
+
+{
+  "name": "Sabor da Palavra",
+  "short_name": "SaborPalavra",
+  "description": "Um refúgio diário de espiritualidade católica. Alimento para a alma com a Palavra de Deus, reflexões e orações.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
