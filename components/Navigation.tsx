@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { AppView } from '../types';
-import { Calendar, Bell, Book, Info, MessageSquare } from 'lucide-react';
+import { Calendar, Bell, Book, Info, MessageSquare, Waves } from 'lucide-react';
 
 interface NavigationProps {
   currentView: AppView;
@@ -14,6 +14,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentView, setView, isDark })
     { id: AppView.HOJE, label: 'Hoje', icon: Calendar },
     { id: AppView.AVISOS, label: 'Avisos', icon: Bell },
     { id: AppView.CATEQUESE, label: 'Catequese', icon: Book },
+    { id: AppView.FLOW, label: 'Florescer', icon: Waves },
     { id: AppView.ORACAO, label: 'Orações', icon: MessageSquare },
     { id: AppView.SOBRE, label: 'Sobre', icon: Info },
   ];

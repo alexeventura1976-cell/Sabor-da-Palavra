@@ -7,6 +7,7 @@ import AvisosView from './components/AvisosView';
 import CatequeseView from './components/CatequeseView';
 import SobreView from './components/SobreView';
 import OracoesView from './components/OracoesView';
+import FlowView from './components/FlowView';
 import EditorView from './components/EditorView';
 import AdminLogin from './components/AdminLogin';
 import Logo from './components/Logo';
@@ -16,17 +17,16 @@ const App: React.FC = () => {
   const [view, setView] = useState<AppView>(AppView.HOJE);
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
 
-  // Modo Noite fixo
   const isDark = true;
 
-  // Renderiza a view correta baseada no estado
   const renderView = () => {
     switch (view) {
       case AppView.HOJE: return <HojeView isDark={isDark} />;
       case AppView.AVISOS: return <AvisosView />;
       case AppView.CATEQUESE: return <CatequeseView />;
-      case AppView.SOBRE: return <SobreView setView={setView} />;
       case AppView.ORACAO: return <OracoesView />;
+      case AppView.FLOW: return <FlowView />;
+      case AppView.SOBRE: return <SobreView setView={setView} />;
       case AppView.EDITOR: 
         return isAdminAuthenticated ? (
           <EditorView onSave={() => setView(AppView.HOJE)} onLogout={() => setIsAdminAuthenticated(false)} />
@@ -39,7 +39,6 @@ const App: React.FC = () => {
 
   return (
     <div className="dark min-h-screen bg-slate-900 text-slate-100 transition-colors duration-500">
-      {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur-md border-b border-white border-opacity-5 bg-slate-900/80 px-6 py-3 flex justify-between items-center">
         <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setView(AppView.HOJE)}>
           <Logo className="w-10 h-10" />
@@ -61,12 +60,10 @@ const App: React.FC = () => {
         </div>
       </header>
 
-      {/* Main Content Area */}
       <main className="max-w-2xl mx-auto px-6 py-8 pb-32">
         {renderView()}
       </main>
 
-      {/* Navigation */}
       <Navigation currentView={view} setView={setView} isDark={isDark} />
     </div>
   );

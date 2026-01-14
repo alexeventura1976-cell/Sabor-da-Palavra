@@ -5,6 +5,7 @@ export enum AppView {
   CATEQUESE = 'catequese',
   SOBRE = 'sobre',
   ORACAO = 'oracao',
+  FLOW = 'flow',
   EDITOR = 'editor'
 }
 
@@ -13,7 +14,7 @@ export interface Liturgy {
   liturgicalTime: string;
   firstReading: string;
   psalm: string;
-  secondReading?: string; // Opcional, para domingos e festas
+  secondReading?: string;
   gospel: string;
 }
 
@@ -21,11 +22,11 @@ export interface Reflection {
   saborDaGraca: string;
   goleDeSabedoria: string;
   ultimoGole: string;
-  audioUrl?: string; // Novo campo para o áudio da reflexão
+  audioUrl?: string;
 }
 
 export interface DailyContent {
-  dateKey: string; // YYYY-MM-DD
+  dateKey: string;
   liturgy: Liturgy;
   reflection: Reflection;
 }
@@ -38,6 +39,11 @@ export interface AvisosContent {
 
 export interface VoceSabiaContent {
   titulo: string;
+  texto: string;
+  updatedAt: string;
+}
+
+export interface FlowContent {
   texto: string;
   updatedAt: string;
 }
